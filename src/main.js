@@ -5,8 +5,25 @@ import { loadFonts } from './plugins/webfontloader'
 import HomePage from "@/components/HomePage.vue";
 import Playground from "@/components/PlaygroundPage.vue";
 import {createRouter,createWebHashHistory} from 'vue-router';
+import { createStore } from 'vuex'
 
 loadFonts()
+
+
+
+// Create a new store instance.
+const store = createStore({
+    state () {
+        return {
+            count: 0
+        }
+    },
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    }
+})
 
 const routes = [
     { path: '/', component: HomePage },
@@ -25,4 +42,5 @@ const router = createRouter({
 createApp(App)
     .use(vuetify)
     .use(router)
+    .use(store)
     .mount('#app')

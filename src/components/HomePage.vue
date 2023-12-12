@@ -1,7 +1,16 @@
 <script>
 export default {
-  name: "HomePage"
+  name: "HomePage",
+  data() {
+    return {
+      firstName: '',
+      lastName: '',
+      age: null,
+      checkbox: false,
+      yearOfProgramming: null
 
+    }
+  }
 }
 
 </script>
@@ -45,21 +54,37 @@ export default {
       <v-form>
         <v-text-field
             v-model="firstName"
-            :rules="rules"
+            :rules="[v => !!v || 'First name is required']"
             label="First name"
         ></v-text-field>
 
         <v-text-field
             v-model="lastName"
-            :rules="rules"
+            :rules="[v => !!v || 'Last name is required']"
             label="Last name"
         ></v-text-field>
 
         <v-text-field
+
             v-model="age"
-            :rules="rules"
+            :rules="[v => !!v || 'Age is required']"
             label="Age"
         ></v-text-field>
+
+        <v-select
+            v-model="yearOfProgramming"
+            :items="items"
+            :rules="[v => !!v || 'Years of experience is required']"
+            label="Years of experience in programming"
+            required
+        ></v-select>
+
+        <v-checkbox
+            v-model="checkbox"
+            :rules="[v => !!v || 'You must agree to continue!']"
+            label="Check the box to agree that your data will be collected"
+            required
+        ></v-checkbox>
 
         <div class="d-flex justify-center">
           <v-btn type="submit"

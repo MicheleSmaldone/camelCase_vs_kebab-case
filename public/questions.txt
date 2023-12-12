@@ -1,0 +1,48 @@
+const questions = [
+  {
+    "sentence": "move south",
+    "camelcase": {
+      "correct": "moveSouth",
+      "options": ["moveSouth", "movieSouth", "moreSouth", "moveTouth"]
+    },
+    "kebabcase": {
+      "correct": "move-south",
+      "options": ["move-south", "movie-south", "more-south", "move-touth"],
+    }
+  },
+  {
+    "sentence": "get route",
+    "camelcase": {
+      "correct": "getRoute",
+      "options": ["getRoute", "gotRoute", "gitRoute", "getToute"]
+    },
+    "kebabcase": {
+      "correct": "get-route",
+      "options": [ "got-route", "git-route", "get-route", "get-toute"],
+    }
+  },
+  {
+    "sentence": "hello world",
+    "camelcase": {
+      "correct": "helloWorld",
+      "options": [ "hellaWorld", "halloWorld", "helloWurld", "helloWorld"]
+    },
+    "kebabcase": {
+      "correct": "hello-world",
+      "options": [ "hella-world","hello-world", "hallo-world", "hello-wurld"],
+    }
+  },
+  {
+    "sentence": "my name is",
+    "camelcase": {
+      "correct": "myNameIs",
+      "options": [ "myNumeIs","myFameIs", "myNameLs", "myNameIs"]
+    },
+    "kebabcase": {
+      "correct": "my-name-is",
+      "options": ["my-fame-is", "my-name-is", "my-nuie-is", "my-nase-is"],
+    }
+  }];
+
+
+//questions[0].camelcase.options
