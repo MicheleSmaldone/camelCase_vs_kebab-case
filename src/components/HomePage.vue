@@ -1,7 +1,9 @@
 <script>
 export default {
   name: "HomePage"
+
 }
+
 </script>
 
 <template>
@@ -9,12 +11,14 @@ export default {
   <div class="d-flex flex-column align-center justify-center mt-16">
     <v-card
         width="400"
+        elevation="0"
         title="Experiment: camelCase vs kebab-case"
     ></v-card>
 
     <v-card
         width="500"
         class="mt-2"
+        elevation="0"
         subtitle="Introduction: "
         text="Studies performed in natural language reading show that people read better (i.e., 20% faster) when an explicit
               separator is used between words. It does not matter the type of separator, it could be a white space or a special
@@ -25,6 +29,7 @@ export default {
     <v-card
         width="500"
         class="mt-2"
+        elevation="0"
         subtitle="Instructions: "
         text="When you are going to press start experiment...(text)"
     >
@@ -33,16 +38,39 @@ export default {
     <v-card
         width="500"
         class="mt-2"
+        elevation="16"
         subtitle="form: "
-        text="Please, fill in the form."
+        text="Please, fill in the form before starting the experiment."
     >
-      <form>
-        
-      </form>
-    </v-card>
+      <v-form>
+        <v-text-field
+            v-model="firstName"
+            :rules="rules"
+            label="First name"
+        ></v-text-field>
 
-    <v-btn class="ma-4  rounded-xl"
-           color="green"> start experiment </v-btn>
+        <v-text-field
+            v-model="lastName"
+            :rules="rules"
+            label="Last name"
+        ></v-text-field>
+
+        <v-text-field
+            v-model="age"
+            :rules="rules"
+            label="Age"
+        ></v-text-field>
+
+        <div class="d-flex justify-center">
+          <v-btn type="submit"
+                 class="mb-3"
+                 color="green"
+                 @click="$router.push('/playground')">
+            Submit & start</v-btn>
+        </div>
+
+      </v-form>
+    </v-card>
 
   </div>
 

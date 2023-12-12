@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "Playground"
+  name: "PlaygroundPage"
 }
 </script>
 
