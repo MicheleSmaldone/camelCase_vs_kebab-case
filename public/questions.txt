@@ -1,11 +1,13 @@
-const questions = [
-  {
+const questions = [{
+
     "sentence": "move south",
-    "camelcase": {
+    "camelcase":
+    {
       "correct": "moveSouth",
       "options": ["moveSouth", "movieSouth", "moreSouth", "moveTouth"]
     },
-    "kebabcase": {
+    "kebabcase":
+    {
       "correct": "move-south",
       "options": ["move-south", "movie-south", "more-south", "move-touth"],
     }
@@ -43,6 +45,24 @@ const questions = [
       "options": ["my-fame-is", "my-name-is", "my-nuie-is", "my-nase-is"],
     }
   }];
+
+const playground = [
+{
+[
+  {
+    "sentence": "try experiment sentence",
+    "camelcase": {
+      "correct": "tryExperimentSentence",
+      "options": ["buyExperimentSentence", "tryExperimentSentence", "tryExerimentSeztence", "tryExperimntSentient"]
+    },
+    "kebabcase": {
+      "correct": "try-experiment-sentence",
+      "options": ["try-exeriment-seztence", "buy-experiment-sentence", "try-experment-sentence", "try-experiment-sentence"],
+    }
+  },
+}]
+
+
 
 
 //questions[0].camelcase.options

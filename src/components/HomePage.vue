@@ -7,7 +7,11 @@ export default {
       lastName: '',
       age: null,
       checkbox: false,
-      yearOfProgramming: null
+      yearOfProgramming: null,
+      items: [
+          'yes',
+          'no'
+      ]
 
     }
   }
@@ -18,6 +22,7 @@ export default {
 <template>
 
   <div class="d-flex flex-column align-center justify-center mt-16">
+
     <v-card
         width="400"
         elevation="0"
@@ -37,10 +42,10 @@ export default {
 
     <v-card
         width="500"
-        class="mt-2"
+        class="mt-2 mb-2"
         elevation="0"
         subtitle="Instructions: "
-        text="When you are going to press start experiment...(text)"
+        text="More detailed instructions will be in the next phase, after you will press the 'SUBMIT & START' button"
     >
     </v-card>
 
@@ -49,27 +54,24 @@ export default {
         class="mt-2"
         elevation="16"
         subtitle="form: "
-        text="Please, fill in the form before starting the experiment."
+        text="Please, fill in the form before starting the experiment.
+        By submitting the form you agree to share your data with the owners of the website"
     >
       <v-form>
-        <v-text-field
-            v-model="firstName"
-            :rules="[v => !!v || 'First name is required']"
-            label="First name"
-        ></v-text-field>
-
-        <v-text-field
-            v-model="lastName"
-            :rules="[v => !!v || 'Last name is required']"
-            label="Last name"
-        ></v-text-field>
-
         <v-text-field
 
             v-model="age"
             :rules="[v => !!v || 'Age is required']"
             label="Age"
         ></v-text-field>
+
+        <v-select
+            v-model="impairmentVision"
+            :items="items"
+            :rules="[v => !!v || 'this information is required']"
+            label="Do you have any problem with your sight?"
+            required
+        ></v-select>
 
         <v-select
             v-model="yearOfProgramming"
@@ -79,12 +81,7 @@ export default {
             required
         ></v-select>
 
-        <v-checkbox
-            v-model="checkbox"
-            :rules="[v => !!v || 'You must agree to continue!']"
-            label="Check the box to agree that your data will be collected"
-            required
-        ></v-checkbox>
+
 
         <div class="d-flex justify-center">
           <v-btn type="submit"
