@@ -3,9 +3,10 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import HomePage from "@/components/HomePage.vue";
-import Playground from "@/components/PlaygroundPage.vue";
+import PlaygroundPage from "@/components/PlaygroundPage.vue";
 import {createRouter,createWebHashHistory} from 'vue-router';
 import { createStore } from 'vuex'
+import ExperimentPage from "@/components/ExperimentPage.vue";
 
 loadFonts()
 
@@ -15,19 +16,45 @@ loadFonts()
 const store = createStore({
     state () {
         return {
-            count: 0
+            experimentObject: {
+                id: 0,
+                form: {},
+                results: []
+                }
+
         }
     },
     mutations: {
-        increment (state) {
-            state.count++
+        add_form(state, formData){
+            state.experimentObject.id++;
+            state.experimentObject.form = formData;
+        },
+        add_result(state, resultData){
+            state.experimentObject.results.push(resultData);
+        }
+    },
+    actions: {
+        submitForm({commit}, form) {
+            commit('add_form', {
+                formData: {
+                    age: form.age,
+                    impairmentVision: form.impairmentVision,
+                    yearsOfProgramming: form.yearsOfProgramming
+                }
+            })
+        },
+        submitResult({commit}, result) {
+            commit('add_result', {
+                resultData: result,
+            })
         }
     }
 })
 
 const routes = [
     { path: '/', component: HomePage },
-    { path: '/playground', component: Playground },
+    { path: '/playground', component: PlaygroundPage },
+    { path: '/experiment', component: ExperimentPage}
 ]
 
 // 3. Create the router instance and pass the `routes` option

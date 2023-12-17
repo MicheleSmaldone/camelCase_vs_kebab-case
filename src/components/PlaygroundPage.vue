@@ -5,24 +5,18 @@
     <v-card width="600"
             elevation="0"
             class="text-center mx-auto ma-7">
-      <h2>"{{this.playground[0].sentence}}"</h2>
+      <h2> {{this.playground[0].sentence}} </h2>
     </v-card>
 
-    <v-card
-        width="700"
-        class="text-center"
-        elevation="0">
-
-    </v-card>
 
       <v-row justify="center">
-        <v-col cols="12" sm="4" md="4" lg="4" class="ma-2 ma-lg-1"
+        <v-col cols="12" sm="4" md="4" lg="4" class="ma-1"
                v-for="(option, index) in getCurrentOptions"
                :key="index">
           <v-card
               width="300"
               @click="checkCorrectness(option)"
-              class="text-center mx-auto"
+              class="text-center"
               :title="option"
           ></v-card>
         </v-col>
@@ -30,11 +24,12 @@
 
     <div v-if="isCorrect !== null">
       <div v-if="isCorrect">
-        <p class="mt-8">this answer is correct: {{ currentOption }}</p>
-      </div>
+        <p class="mt-8" style="color: green">correct! answer selected: {{ currentOption }}</p> </div>
       <div v-else>
-        <p class="mt-8">this answer is wrong: {{ currentOption }}</p>
-      </div>
+        <p class="mt-8" style="color: red">wrong! answer selected: {{ currentOption }}</p> </div>
+    </div>
+    <div v-else>
+      <p class="mt-8">the answer is... (press on a button to see a result)</p>
     </div>
 
     <v-card elevation="0"
@@ -48,7 +43,7 @@
 
     <v-btn class="ma-4 rounded-xl" color="blue" @click="toggleCase">Switch Kebab-case/camel-Case</v-btn>
 
-    <v-btn class="ma-4 rounded-xl" color="green">Start experiment</v-btn>
+    <v-btn class="ma-4 rounded-xl" color="green" @click="$router.push('/experiment')">Start experiment</v-btn>
   </div>
 </template>
 

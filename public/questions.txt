@@ -44,7 +44,73 @@ const questions = [{
       "correct": "my-name-is",
       "options": ["my-fame-is", "my-name-is", "my-nuie-is", "my-nase-is"],
     }
-  }];
+  },
+  {
+      "sentence": "open sesame",
+      "camelcase": {
+        "correct": "openSesame",
+        "options": ["openSesame", "openedSesame", "openSesamme", "open-ssame"]
+      },
+      "kebabcase": {
+        "correct": "open-sesame",
+        "options": ["opened-sesame", "open-sesamme", "open-ssame","open-sesame"],
+      }
+    },
+    {
+      "sentence": "create folder",
+      "camelcase": {
+        "correct": "createFolder",
+        "options": ["createFolder", "createtFolder", "createFoldder", "creataFolder"]
+      },
+      "kebabcase": {
+        "correct": "create-folder",
+        "options": [ "created-folder", "create-foldder", "create-folder", "create-folter"],
+      }
+    },
+    {
+      "sentence": "read book",
+      "camelcase": {
+        "correct": "readBook",
+        "options": [ "redBook", "readBook", "readBok", "reaDbook"]
+      },
+      "kebabcase": {
+        "correct": "read-book",
+        "options": [ "red-book", "read-bok", "read-book","readBook"],
+      }
+    },
+    {
+      "sentence": "play music",
+      "camelcase": {
+        "correct": "playMusic",
+        "options": [ "playedMusic", "playMusic", "playMusik", "play-music"]
+      },
+      "kebabcase": {
+        "correct": "play-music",
+        "options": [ "played-music", "play-music", "play-musik", "play-usic"],
+      }
+    },
+    {
+      "sentence": "write code",
+      "camelcase": {
+        "correct": "writeCode",
+        "options": ["writeCode", "wroteCode", "writeCote", "writecode"]
+      },
+      "kebabcase": {
+        "correct": "write-code",
+        "options": ["write-code", "wrote-code", "write-cote", "write-pope"],
+      }
+    },
+    {
+      "sentence": "search internet",
+      "camelcase": {
+        "correct": "searchInternet",
+        "options": ["searchInternet", "searchedInternet", "searchIneternet", "searchJnternet"]
+      },
+      "kebabcase": {
+        "correct": "search-internet",
+        "options": [ "searched-internet", "search-internet", "search-ineternet", "searc-nternet"],
+      }
+    }];
 
 const playground = [
 {
