@@ -187,7 +187,7 @@ export default {
   <v-card width="600"
           elevation="0"
           class="text-center mx-auto ma-9 mt-16">
-    <h2> {{ questions[currentIndex].sentence }} </h2>
+    <h2> {{ questions[currentIndex][currentCase].correct }} </h2>
   </v-card>
 
 

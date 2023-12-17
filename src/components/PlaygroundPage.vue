@@ -5,18 +5,18 @@
     <v-card width="600"
             elevation="0"
             class="text-center mx-auto ma-7">
-      <h2> {{this.playground[0].sentence}} </h2>
+      <h2> {{this.playground[0][currentCase].correct}} </h2>
     </v-card>
 
 
       <v-row justify="center">
-        <v-col cols="12" sm="4" md="4" lg="4" class="ma-1"
+        <v-col cols="12" sm="4" md="4" lg="4" class="mx-6 ma-lg-1"
                v-for="(option, index) in getCurrentOptions"
                :key="index">
           <v-card
               width="300"
               @click="checkCorrectness(option)"
-              class="text-center"
+              class="text-center mx-auto"
               :title="option"
           ></v-card>
         </v-col>
