@@ -38,8 +38,9 @@ const store = createStore({
             commit('add_form', {
                 formData: {
                     age: form.age,
-                    impairmentVision: form.impairmentVision,
-                    yearsOfProgramming: form.yearsOfProgramming
+                    gender: form.gender,
+                    hasGlasses: form.hasGlasses,
+                    hasITSkills: form.hasITSkills
                 }
             })
         },
@@ -47,7 +48,30 @@ const store = createStore({
             commit('add_result', {
                 resultData: result,
             })
-        }
+        },
+        async submitExperimentObject({ commit, state }) {
+            try {
+                console.log("state: ",state)
+
+                const response = await fetch('http://localhost:8000/submit_experiment_object', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(state.experimentObject),
+                });
+
+                const data = await response.json();
+                console.log(data); // Log the response from the backend
+
+                // Handle the response as needed
+
+                // Reset completion flags after successful submission
+                commit('reset_completion_flags');
+            } catch (error) {
+                console.error('Error submitting experimentObject:', error);
+            }
+        },
     }
 })
 

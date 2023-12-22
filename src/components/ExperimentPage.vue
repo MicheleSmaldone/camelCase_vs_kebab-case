@@ -127,8 +127,12 @@ export default {
         }],
     }
   },
+  beforeMount() {
+    this.startTimer()
+  },
   methods: {
     startTimer(){
+      console.log("time started")
       this.startTime = new Date();
     },
     selectOption(option){
@@ -143,7 +147,9 @@ export default {
       )
     },
     storeResult() {
+
       const elapsedTime = this.endTime - this.startTime;
+
       const result = {
         sentence: this.questions[this.currentIndex].sentence,
         userSelection: this.userSelection,
@@ -174,6 +180,8 @@ export default {
       } else {
         // If all questions are completed, perform any final actions
         console.log("Experiment completed!");
+
+        this.$store.dispatch('submitExperimentObject');
       }
     },
   }

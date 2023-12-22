@@ -6,14 +6,14 @@ export default {
       firstName: '',
       lastName: '',
       age: null,
-      yearsOfProgramming: null,
-      impairmentVision: null,
-      itemsYearsOfProgramming: [
-        '0 years',
-        '1-3 years',
-        'more years'
+      gender: null,
+      whichGender: [
+        'male',
+        'female'
       ],
-      itemsImpairmentVision: [
+      hasITSkills: null,
+      hasGlasses: null,
+      items: [
         'yes',
         'no'
       ],
@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     isFormFilled() {
-      return this.age !== null && this.impairmentVision !== null && this.yearsOfProgramming !== null;
+      return this.age !== null && this.hasGlasses !== null && this.hasITSkills !== null;
     },
 
 
@@ -32,8 +32,9 @@ export default {
     submitForm() {
       this.$store.dispatch('submitForm',{
         age: this.age,
-        impairmentVision: this.impairmentVision,
-        yearsOfProgramming: this.yearsOfProgramming,
+        gender: this.gender,
+        hasGlasses: this.hasGlasses,
+        hasITSkills: this.hasITSkills,
       });
       console.log(this.$store.state.experimentObject);
       this.$router.push('/playground');
@@ -45,7 +46,7 @@ export default {
 
 <template>
 
-  <div class="d-flex flex-column align-center justify-center mt-9">
+  <div class="d-flex flex-column align-center justify-center mt-4">
     <h1 >Experiment: camelCase vs kebab-case</h1>
 
     <v-card
@@ -67,12 +68,12 @@ export default {
     </v-card>
     <v-card
         width="500"
-        class="mt-2"
+        class="mt-2 mb-4 rounded-xl"
         elevation="16"
         subtitle="form: "
         text="Please, fill in the form before starting the experiment.
         By submitting the form you agree to share your data with the owners of the website">
-      <v-form >
+      <v-form>
         <v-text-field
 
             v-model="age"
@@ -82,21 +83,28 @@ export default {
             mask="##"
         ></v-text-field>
         <v-select
-            v-model="impairmentVision"
-            :items="itemsImpairmentVision"
+            v-model="gender"
+            :items="whichGender"
             :rules="[v => !!v || 'this information is required']"
-            label="Do you have any problem with your sight?"
+            label="what is your gender?"
             required
         ></v-select>
         <v-select
-            v-model="yearsOfProgramming"
-            :items="itemsYearsOfProgramming"
+            v-model="hasGlasses"
+            :items="items"
+            :rules="[v => !!v || 'this information is required']"
+            label="Do you wear glasses?"
+            required
+        ></v-select>
+        <v-select
+            v-model="hasITSkills"
+            :items="items"
             :rules="[v => !!v || 'Years of experience is required']"
-            label="Years of experience in programming"
+            label="Do you have any programming skills?"
             required
         ></v-select>
         <div class="d-flex justify-center">
-          <v-btn class="mb-3 mt-4"
+          <v-btn class="mb-3 mt-4 rounded-xl"
                  color="green"
                  :disabled="!isFormFilled"
                  @click="this.submitForm()">
